@@ -1,0 +1,63 @@
+---------------------------------------------------------------------
+Configure GIT
+---------------------------------------------------------------------
+git config user.email "kev@kev.com"
+git config user.name "kev"
+
+---------------------------------------------------------------------
+move a repository
+---------------------------------------------------------------------
+git remote -v
+git remote set-url origin https://github.com/planty10000/dwm
+git remote add origin https://github.com/planty10000/dwm
+
+---------------------------------------------------------------------
+clean master branch
+---------------------------------------------------------------------
+make clean && rm -f config.h && git reset --hard origin/master
+
+---------------------------------------------------------------------
+Create a new branch   
+---------------------------------------------------------------------
+git branch config
+
+---------------------------------------------------------------------
+Switch branch
+---------------------------------------------------------------------
+git checkout config
+
+---------------------------------------------------------------------
+add files & commit
+---------------------------------------------------------------------
+git add config.def.h
+git commit -m "commit message"
+
+---------------------------------------------------------------------
+switch back to master
+---------------------------------------------------------------------
+git checkout master
+
+---------------------------------------------------------------------
+Merge changes
+---------------------------------------------------------------------
+git merge config -m config && \
+git merge autostart -m autostart && \
+git merge uselessgaps -m uselessgaps && \
+git merge gridmode -m gridmode && \
+git merge dwmblocks -m dwmblocks && \
+git merge scratchpad -m scratchpad && \
+git merge pertag -m pertag && \
+git merge rotatestackt  -m rotatestack && \
+
+
+---------------------------------------------------------------------
+Make the package
+---------------------------------------------------------------------
+make && sudo make clean install
+
+
+---------------------------------------------------------------------
+push changes to repository
+---------------------------------------------------------------------
+git push origin master
+
