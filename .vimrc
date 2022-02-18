@@ -25,6 +25,8 @@ set encoding=utf8                       "set encoding so glyphs can be displayed
 " +-----------------+
 let mapleader = " "                     "map leader to Space
 
+inoremap jj <Esc> 
+
 " enable copy/paste using system clipboard
 vnoremap <C-c> "+y
 map <C-p> "+p
