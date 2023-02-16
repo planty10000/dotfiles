@@ -1,0 +1,55 @@
+# File manager
+super + e
+  pcmanfm
+
+# Brave
+super + {_,shift} + w
+  {brave,firefox}
+
+# Thunderbird
+super + shift + m
+  thunderbird
+
+# Lock , (logout / shutdown)
+super + {shift,control} + l
+  {slock,~/Programs/scripts/logout.sh}
+
+# volume up/down
+XF86Audio{RaiseVolume,LowerVolume}
+  {pactl set-sink-volume @DEFAULT_SINK@ +10% && kill -44 $(pidof dwmblocks),pactl set-sink-volume @DEFAULT_SINK@ -10% && kill -44 $(pidof dwmblocks)}
+
+# Mute audio
+XF86AudioMute
+  {pactl set-sink-mute @DEFAULT_SINK@ toggle && kill -44 $(pidof dwmblocks)}
+
+# Brightness up/down 
+XF86MonBrightness{Up,Down}
+  {brightnessctl -d 'amdgpu_bl0' s +10% && kill -38 $(pidof dwmblocks), brightnessctl -d 'amdgpu_bl0' s 10%- && kill -38 $(pidof dwmblocks)}
+
+# Restart sxhkd
+ctrl + super + s
+  pkill sxhkd && sxhkd &
+
+# Calculator (bc) - set the title (-t) so it can be set as floating. xprop stuff!
+super + c
+  terminator -e 'bc -q' --geometry 280x440+800+400 -T "calc" -T "calc" &
+
+# screen-shot
+super + s
+  ~/Programs/scripts/screenshot.sh
+
+# email address
+ctrl + shift + E
+    cat ~/Programs/email | xclip -sel c
+
+# alternate email address
+alt + shift + E
+    cat ~/Programs/email-alt | xclip -sel c
+
+# dual monitor support
+ctrl + super + p
+    ~/Programs/scripts/multimonitor.sh &
+
+# youtube downloader
+super + {ctrl,alt,shift} + y
+    {~/Programs/scripts/yt.sh '-g' &,~/Programs/scripts/ytplay.sh &, ~/Programs/scripts/ytfzf.sh -D &}
