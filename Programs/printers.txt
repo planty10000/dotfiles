@@ -1,0 +1,63 @@
+Install HP drivers
+------------------
+    sudo pacman -s hplip
+
+    hp-config
+        - set up usb
+        - set up wifi
+
+    hplip-plugin from AUR
+
+
+CUPS service
+------------
+ CUPS web: http://localhost:631/
+
+    sudo systemctl enable cups
+    sudo systemctl start cups
+    sudo cupsenable HP_Color_LaserJet_MFP_M277dw
+    
+    HP-MFP-M277DW (description)
+
+Printer options
+---------------
+    set default printer
+        lpoptions -d HP_Color_LaserJet_MFP_M277dw
+    view options
+        lpoptions
+
+Printer admin
+-------------
+    lpadmin
+
+Check printer status
+--------------------
+    lpstat -a
+
+Print files
+-----------
+    lp
+    lpr
+
+Printer queue status
+--------------------
+    lpq -P HP_Color_LaserJet_MFP_M277dw 
+
+Show available devices/drivers
+------------------------------
+    list all devices
+        lpinfo -v
+
+    list all drivers
+        lpinfo -m
+
+Cancel print jobs
+-----------------
+    cancel current job
+        lprm -P HP_Color_LaserJet_MFP_M277dw 
+
+    cancel job 25
+        lprm 25
+
+    cancel all jobs
+        lprm -    
